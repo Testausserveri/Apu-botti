@@ -1,2 +1,4 @@
 # Apu-botti
-Discord botti, joka otta ensimmäisen hakutuloksen ja postaa sen. 
+Discord botti, joka ottaa ensimmäisen hakutuloksen ja postaa sen. 
+
+Translator: Kääntää Suomenkielisen kysymyksen englanninkieleen. Toimii hyvin, mutta ei ole todellakaan täydellinen.
