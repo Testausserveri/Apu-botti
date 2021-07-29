@@ -1,4 +1,4 @@
-// The Translator for "Apu-bot". 
+// The Translator for "Apu-bot".
 // Writen by n1ubi.
 //
 // Example:
@@ -12,19 +12,29 @@
 use std::env; // For "command-line" arguments.
 
 
-pub fn parse(input: String) {
-    let mut output = String::from("");
+pub fn parse(input: String) -> (String) {
+    /*let client = reqwest::Client::new();
+    let body = client.post("https://translate.yandex.net/api/v1/tr.json/translate")
+        .body(r#"text=help&options=4"#)
+        .send()
+        .await
+        .unwrap()
+        .text()
+        .await
+        .unwrap();
+    println!("{}",body);*/
 
+    let mut output = String::from("");
     // Hopefully you can read the code.
     //let con = "input.contains"; // I tried this, but didn't work.
     if input != "" {
         // The actual translating part.
         if input.contains("miten") || input.contains("kuinka")              {output.push_str("how do I ");}
         if input.contains("print")                                          {output.push_str("print ");}
-        if input.contains("muuttuja") || input.contains("var")              // Too long. 
-        || input.contains("variable")                                       {output.push_str("variable");}
+        if input.contains("muuttuja") || input.contains("var")              // Too long.
+            || input.contains("variable")                                           {output.push_str("variable");}
         if input.contains("string") || input.contains("teksti")             {output.push_str("string");}
-        //if input.contains("") || input.contains("")              {output.push_str("");} 
+        //if input.contains("") || input.contains("")              {output.push_str("");}
         if input.contains("jos") || input.contains("if")                    {output.push_str("if");}
         if input.contains("tai") || input.contains("else")                  {output.push_str("else");}
         /* TO DO: if input contains unknown word, output.push_str(unknownword) */
@@ -63,17 +73,15 @@ pub fn parse(input: String) {
         // Replace " " with "+". ( https://www.google.com/search?q=google+search )
         // + = %2B, / = %2F
         output = output.replace("+", "%2B").replace("/", "%2F").replace(" ", "+");
-
-
-        println!("{}",output); // Replace the println with return.
     }
     else {
         /* return an error or something. */
         print!("An error occured.");
-    }    
+    }
+    output
 }
 
-pub fn main()
+/*pub fn main()
 {
     let args: Vec<String> = env::args().collect();
     let arg = &args[1];
@@ -82,4 +90,4 @@ pub fn main()
     let input = arg.to_string().replace("-", " ").to_lowercase();
 
     parse(input);
-}
+}*/
